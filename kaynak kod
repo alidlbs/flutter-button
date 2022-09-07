@@ -1,0 +1,74 @@
+import 'package:flutter/material.dart';
+
+class Temelbuttonlar extends StatefulWidget {
+  const Temelbuttonlar({Key? key}) : super(key: key);
+
+  @override
+  State<Temelbuttonlar> createState() => _TemelbuttonlarState();
+}
+
+class _TemelbuttonlarState extends State<Temelbuttonlar> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextButton(
+          onPressed: () {},
+          onLongPress: () {
+            debugPrint('basildi');
+          },
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.resolveWith((states) {
+              if (states.contains(MaterialState.pressed)) {
+                return Colors.red;
+              }
+              if (states.contains(MaterialState.hovered)) {
+                return Colors.purple;
+              }
+              return null;
+            }),
+          ),
+          child: Text('text button'),
+        ),
+        TextButton.icon(
+          onPressed: () {},
+          icon: Icon(Icons.add),
+          label: Text('icon button'),
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          child: Text('elevatedButton'),
+        ),
+        ElevatedButton.icon(
+          onPressed: () {},
+          icon: Icon(Icons.add),
+          label: Text('elevated icon Button'),
+        ),
+        OutlinedButton(
+            onPressed: () {},
+            style: OutlinedButton.styleFrom(
+              primary: Colors.teal,
+            ),
+            child: Text('outlined')),
+        OutlinedButton.icon(
+            onPressed: () {},
+            style: OutlinedButton.styleFrom(
+                shape: StadiumBorder(),
+                side: BorderSide(color: Colors.pink, width: 5)),
+            icon: Icon(Icons.outbond),
+            label: Text('outlined')),
+        OutlinedButton.icon(
+            onPressed: () {},
+            style: OutlinedButton.styleFrom(
+              side: BorderSide(color: Colors.blue, width: 3),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+            ),
+            icon: Icon(Icons.outbond),
+            label: Text('outlined')),
+      ],
+    );
+  }
+}
